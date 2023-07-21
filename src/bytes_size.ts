@@ -25,7 +25,7 @@ const _BYTES: Record<BytesUnit, int> = {
  * const kib = size.to(unit);
  * // kib
  * //   → 2
- * 
+ *
  * const format = new Intl.NumberFormat("en", { style: "unit", unit });
  * const kibStr = format.format(kib);
  * // kibStr

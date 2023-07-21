@@ -74,7 +74,10 @@ Deno.test("BytesSize.prototype.to(string)", () => {
   const bc10 = new BytesSize(10000);
   assertStrictEquals(bc10.to(BytesUnit.B), 10000);
   assertStrictEquals(bc10.to(BytesUnit.KB), 10);
-  const format = new Intl.NumberFormat("en", { style: "unit", unit: BytesUnit.KB });
+  const format = new Intl.NumberFormat("en", {
+    style: "unit",
+    unit: BytesUnit.KB,
+  });
   assertStrictEquals(format.format(bc10.to(BytesUnit.KB)), "10 kB");
 
   const bc1i = new BytesSize(1024);
