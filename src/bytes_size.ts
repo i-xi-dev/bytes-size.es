@@ -1,9 +1,7 @@
 import { Integer } from "../deps.ts";
 import { BytesUnit } from "./bytes_unit.ts";
 
-type int = number;
-
-const _BYTES: Record<BytesUnit, int> = {
+const _BYTES: Record<BytesUnit, Integer> = {
   [BytesUnit.B]: 1,
   [BytesUnit.KB]: 1_000, // 10 ** 3
   [BytesUnit.MB]: 1_000_000, // 10 ** 6
@@ -33,9 +31,9 @@ const _BYTES: Record<BytesUnit, int> = {
  * ```
  */
 class BytesSize {
-  #byteCount: int;
+  #byteCount: Integer;
 
-  constructor(byteCount: int | bigint) {
+  constructor(byteCount: Integer | bigint) {
     if (typeof byteCount === "bigint") {
       if ((byteCount >= 0) && (byteCount <= Number.MAX_SAFE_INTEGER)) {
         this.#byteCount = Number(byteCount);
