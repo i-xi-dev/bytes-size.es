@@ -41,7 +41,7 @@ class BytesSize {
         throw new RangeError("byteCount");
       }
     } else if (typeof byteCount === "number") {
-      if (SafeInteger.isNonNegative(byteCount) === true) {
+      if (SafeInteger.isNonNegativeSafeInteger(byteCount) === true) {
         this.#byteCount = byteCount;
       } else {
         throw new RangeError("byteCount");
