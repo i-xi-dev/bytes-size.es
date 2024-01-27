@@ -30,7 +30,7 @@ const _BYTES: Record<BytesUnit, SafeInteger> = {
  * //   → "2 kB"
  * ```
  */
-class BytesSize {
+export class BytesSize {
   #byteCount: SafeInteger;
 
   constructor(byteCount: SafeInteger | bigint) {
@@ -95,6 +95,3 @@ class BytesSize {
     return this.#byteCount;
   }
 }
-Object.freeze(BytesSize);
-
-export { BytesSize };
