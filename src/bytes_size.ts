@@ -1,7 +1,9 @@
 import { SafeInteger } from "../deps.ts";
 import { BytesUnit } from "./bytes_unit.ts";
 
-const _BYTES: Record<BytesUnit, SafeInteger> = {
+type int = number;
+
+const _BYTES: Record<BytesUnit, int> = {
   [BytesUnit.B]: 1,
   [BytesUnit.KB]: 1_000, // 10 ** 3
   [BytesUnit.MB]: 1_000_000, // 10 ** 6
@@ -31,9 +33,9 @@ const _BYTES: Record<BytesUnit, SafeInteger> = {
  * ```
  */
 export class BytesSize {
-  #byteCount: SafeInteger;
+  #byteCount: int;
 
-  constructor(byteCount: SafeInteger | bigint) {
+  constructor(byteCount: int | bigint) {
     if (typeof byteCount === "bigint") {
       if ((byteCount >= 0) && (byteCount <= Number.MAX_SAFE_INTEGER)) {
         this.#byteCount = Number(byteCount);
@@ -41,7 +43,7 @@ export class BytesSize {
         throw new RangeError("byteCount");
       }
     } else if (typeof byteCount === "number") {
-      if (SafeInteger.isNonNegativeSafeInteger(byteCount) === true) {
+      if (SafeInteger.isNonNegative(byteCount) === true) {
         this.#byteCount = byteCount;
       } else {
         throw new RangeError("byteCount");
