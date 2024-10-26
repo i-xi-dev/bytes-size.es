@@ -1,1 +1,1 @@
-export { SafeInteger } from "https://raw.githubusercontent.com/i-xi-dev/number.es/10.2.1/mod.ts";
+export * from "https://raw.githubusercontent.com/i-xi-dev/type.es/2.2.1/mod.ts";

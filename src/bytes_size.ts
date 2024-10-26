@@ -1,4 +1,4 @@
-import { SafeInteger } from "../deps.ts";
+import { SafeIntegerType } from "../deps.ts";
 import { BytesUnit } from "./bytes_unit.ts";
 
 type int = number;
@@ -43,7 +43,7 @@ export class BytesSize {
         throw new RangeError("byteCount");
       }
     } else if (typeof byteCount === "number") {
-      if (SafeInteger.isNonNegative(byteCount) === true) {
+      if (SafeIntegerType.isNonNegative(byteCount) === true) {
         this.#byteCount = byteCount;
       } else {
         throw new RangeError("byteCount");
